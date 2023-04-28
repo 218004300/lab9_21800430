@@ -5,16 +5,16 @@
 #include "score.h"
 
 void addUpScore(Score *s, int index, int n) {
-    printf("ÀÌ¸§Àº? ");
+    printf("ì´ë¦„ì€? ");
     scanf("%s", s->name);
 
-    printf("±¹¾î´Â? ");
+    printf("êµ­ì–´ëŠ”? ");
     scanf("%d", &s->kor);
 
-    printf("¿µ¾î´Â? ");
+    printf("ì˜ì–´ëŠ”? ");
     scanf("%d", &s->eng);
 
-    printf("¼öÇĞÀº? ");
+    printf("ìˆ˜í•™ì€? ");
     scanf("%d", &s->math);
 
     s->no = index;
@@ -22,9 +22,9 @@ void addUpScore(Score *s, int index, int n) {
     s->avg = s->sum / 3.0;
 
     if(n == 2)
-        printf("=> Ãß°¡µÊ!\n");
+        printf("=> ì¶”ê°€ë¨!\n");
     else
-        printf("=> ¼öÁ¤µÊ!\n");
+        printf("=> ìˆ˜ì •ë¨!\n");
 };
 
 void readScore(Score s) {
@@ -33,15 +33,15 @@ void readScore(Score s) {
 
 int selectMenu(){
     int menu;
-    printf("\n*** Á¡¼ö°è»ê±â ***\n");
-    printf("1. Á¶È¸\n");
-    printf("2. Ãß°¡\n");
-    printf("3. ¼öÁ¤\n");
-    printf("4. »èÁ¦\n");
-    printf("5. ÆÄÀÏÀúÀå\n");
-    printf("6. ÀÌ¸§°Ë»ö\n");
-    printf("0. Á¾·á\n\n");
-    printf("=> ¿øÇÏ´Â ¸Ş´º´Â? ");
+    printf("\n*** ì ìˆ˜ê³„ì‚°ê¸° ***\n");
+    printf("1. ì¡°íšŒ\n");
+    printf("2. ì¶”ê°€\n");
+    printf("3. ìˆ˜ì •\n");
+    printf("4. ì‚­ì œ\n");
+    printf("5. íŒŒì¼ì €ì¥\n");
+    printf("6. ì´ë¦„ê²€ìƒ‰\n");
+    printf("0. ì¢…ë£Œ\n\n");
+    printf("=> ì›í•˜ëŠ” ë©”ë‰´ëŠ”? ");
     scanf("%d", &menu);
     return menu;
 }
@@ -63,10 +63,10 @@ void listScore(Score *s[], int index, int n) {
 int selectDataNum(Score *s[], int index) {
     listScore(s, index, -1);
     int num;
-    printf("\n¹øÈ£´Â (Ãë¼Ò :0)? ");
+    printf("\në²ˆí˜¸ëŠ” (ì·¨ì†Œ :0)? ");
     scanf("%d", &num);
     if(s[num] == NULL) {
-        printf("Àß¸øµÈ ¹øÈ£ÀÔ´Ï´Ù.\n");
+        printf("ì˜ëª»ëœ ë²ˆí˜¸ì…ë‹ˆë‹¤.\n");
     }
 
 
@@ -105,29 +105,5 @@ int saveFile(Score *s[], int index) {
         if(i < index) fprintf(fs, "\n");
     }
     fclose(fs);
-    printf("ÀúÀåµÊ!\n");
-}
-
-void searchName(Score *s[], int index) {
-    char search[20];
-    int n = 0, i;
-    int scnt = 0;
-
-    printf("°Ë»öÇÒ ÀÌ¸§Àº? ");
-    scanf("%s", search);
-
-    for(i = 1; i <= index; i++) {
-        if(s[i] == NULL) continue;
-        if(strcmp(s[i]->name, search) == 0) {
-            n = i;
-            scnt++;
-            break;
-        }
-    }
-
-    if(scnt > 0) {
-        listScore(s, index, n);
-    } else {
-        printf("=> ÇØ´ç ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.\n");
-    }
+    printf("ì €ì¥ë¨!\n");
 }
