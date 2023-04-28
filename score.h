@@ -15,3 +15,4 @@ void listScore(Score *s[], int index, int n);
 int selectDataNum(Score *s[], int index);
 int loadFile(Score *s[]);
 int saveFile(Score *s[], int index);
+void searchName(Score *s[], int index);
