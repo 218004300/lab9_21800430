@@ -107,10 +107,6 @@ int saveFile(Score *s[], int index) {
     printf("저장됨!\n");
 }
 
-void searchName(Score *s[], int index){
-
-
-}
 
 void searchName(Score *s[], int count){
     int scnt = 0;
