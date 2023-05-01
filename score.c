@@ -106,3 +106,25 @@ int saveFile(Score *s[], int index) {
     fclose(fs);
     printf("저장됨!\n");
 }
+
+
+void searchName(Score *s[], int count){
+    int scnt = 0;
+    char search[20];
+
+    printf("검색할 이름은?");
+    scanf("%s", search);
+
+    printf("\nNo Name for Kor Eng Math Sum Avg\n");
+    printf("====================================\n");
+    for(int i=0; i<count; i++){
+        if(s[i] == NULL) continue;
+        if(strstr(s[i]->name, search)){
+            printf("%2d ", i+1);
+            readScore(*s[i]);
+            scnt++;
+        }
+    }
+    if(scnt == 0) printf("검색된 데이터가 없습니다.\n");
+    
+}
